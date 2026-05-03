@@ -17,6 +17,8 @@ jobs:
     - uses: actions/checkout@v4
     - name: Download Libdpp .deb package
       run: wget -O dpp.deb https://dl.dpp.dev/
+    - name: Install dep libopus
+      run: sudo apt-get install -y libopus libopus-dev
     - name: Install Libdpp
       run:  sudo dpkg -i dpp.deb
     - name: Setup Build2
