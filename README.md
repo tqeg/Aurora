@@ -7,3 +7,5 @@
 </h1>
 
 <h4 align="center"> Moderation,  Management, Lua scriptable</h4>
+
+<h4 align="center">Released under the GNU GPL v3 license.</h4>
