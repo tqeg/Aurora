@@ -19,7 +19,7 @@ jobs:
     - name: Install dep libopus
       run: sudo apt-get install -y libopus0
     - name: Install Libdpp
-      run:  sudo apt install -y -f dpp.deb
+      run:  sudo apt install -y -f ./dpp.deb
     - name: Setup Build2
       run:  wget https://download.build2.org/0.18.1/bindist/ubuntu/ubuntu24.04/x86_64/build2-toolchain_0.18.1-0~ubuntu24.04_amd64.deb
     - name: Sha256sum
