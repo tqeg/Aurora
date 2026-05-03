@@ -14,7 +14,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
     - name: Download Libdpp .deb package
       run: wget -O dpp.deb https://dl.dpp.dev/
     - name: Install dep libopus
@@ -29,10 +28,13 @@ jobs:
       run:  sha256sum -c packages.sha256
     - name: Build2 install
       run:  sudo apt-get install ./build2-toolchain_0.18.1-0~ubuntu24.04_amd64.deb
+    - name: Get source code
+      uses: actions/checkout@v4
+      working-directory: ${GITHUB_WORKSPACE}
     - name: Create build configuration
       run:  bdep config create ../clangDBG @clangDBG cc config.c=clang config.cxx=clang++ config.cxx.std=c++20
-    - name: Initialize peoject in the new configuration
-      run:  bdep ini @clangDBG "sync ?sys:libdpp"
+    - name: Initialize project in the new configuration
+      run:  bdep init @clangDBG "sync ?sys:libdpp"
     - name: Compile
       run: b
       
