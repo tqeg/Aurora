@@ -12,6 +12,9 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: /Dev/AuroraBuild/Aurora
 
     steps:
     - uses: actions/checkout@v4
@@ -30,7 +33,9 @@ jobs:
     - name: Build2 install
       run:  sudo apt-get install ./build2-toolchain_0.18.1-0~ubuntu24.04_amd64.deb
     - name: Create build configuration
-      run:  bdep init -C @clang cc config.c=clang config.cxx=clang++ config.cxx.std=c++20 "sync ?sys:dpp"
+      run:  bdep config create ../clangDBG @clangDBG cc config.c=clang config.cxx=clang++ config.cxx.std=c++20
+    - name: Initialize peoject in the new configuration
+      run:  bdep ini @clangDBG "sync ?sys:libdpp"
     - name: Compile
       run: b
       
