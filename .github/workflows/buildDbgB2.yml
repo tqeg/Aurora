@@ -35,7 +35,7 @@ jobs:
     - name: Create Build2 build configuration
       run: bpkg create --directory ../clangDBG cc config.cxx=clang++ config.c=clang config.cxx.std=c++20
     - name: Initialize project in the new configuration
-      run:  pwd && bdep init -A ../clangDBG @clangDBG "?sys:libdpp"
+      run:  pwd && bdep init -A ../clangDBG @clangDBG --sys-no-stub "?sys:libdpp"
     - name: Compile
       run: b
       
