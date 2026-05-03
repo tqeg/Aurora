@@ -18,7 +18,7 @@ jobs:
     - name: Download Libdpp .deb package
       run: wget -O dpp.deb https://dl.dpp.dev/
     - name: Install Libdpp
-      run:  sudo dpkg -i dpp.dev
+      run:  sudo dpkg -i dpp.deb
     - name: Setup Build2
       run:  wget https://download.build2.org/0.18.1/bindist/ubuntu/ubuntu24.04/x86_64/build2-toolchain_0.18.1-0~ubuntu24.04_amd64.deb
     - name: Sha256sum
