@@ -18,7 +18,7 @@ jobs:
     - name: Download Libdpp .deb package
       run: wget -O dpp.deb https://dl.dpp.dev/
     - name: Install dep libopus
-      run: sudo apt-get install -y libopus libopus-dev
+      run: sudo apt-get install -y libopus0
     - name: Install Libdpp
       run:  sudo dpkg -i dpp.deb
     - name: Setup Build2
