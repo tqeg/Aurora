@@ -30,7 +30,8 @@ jobs:
       run:  sudo apt-get install ./build2-toolchain_0.18.1-0~ubuntu24.04_amd64.deb
     - name: Get source code
       uses: actions/checkout@v4
-      working-directory: ${GITHUB_WORKSPACE}
+      with:
+        working-directory: ${GITHUB_WORKSPACE}
     - name: Create build configuration
       run:  bdep config create ../clangDBG @clangDBG cc config.c=clang config.cxx=clang++ config.cxx.std=c++20
     - name: Initialize project in the new configuration
